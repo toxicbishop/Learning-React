@@ -1,4 +1,4 @@
-# Learning React (BCSL657B)
+React (BCSL657B)
 
 Repository containing React programs developed during the 6th semester.
 
