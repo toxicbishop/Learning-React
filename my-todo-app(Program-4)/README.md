@@ -43,6 +43,16 @@ const [newTask, setNewTask] = useState('');
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Recommended VS Code Extensions
+
+To enhance your development experience, it is highly recommended to install the following VS Code extensions:
+
+- **[ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint)**: Integrates ESLint into VS Code to catch errors and enforce code style.
+- **[Prettier - Code formatter](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)**: Ensures consistent code formatting across the project.
+- **[ES7+ React/Redux/React-Native snippets](https://marketplace.visualstudio.com/items?itemName=dsznajder.es7-react-js-snippets)**: Provides helpful snippets for React development (e.g., `rfce` for functional components).
+- **[Auto Close Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-close-tag)** / **[Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)**: Makes working with JSX tags much smoother.
+- **[Error Lens](https://marketplace.visualstudio.com/items?itemName=usernamehw.errorlens)** (Optional): Displays errors and warnings directly in the editor line.
+
 ## Available Scripts
 
 In the project directory, you can run:
