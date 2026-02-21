@@ -1,47 +1,66 @@
 import React, { useState } from "react";
 import "./App.css";
-function App() {
-  const [counter, setCounter] = useState(0);
-  const [step, setStep] = useState(1);
-  const minValue = 0;
-  const handleIncrement = () => {
-    setCounter((prevCounter) => prevCounter + step);
-  };
-  const handleDecrement = () => {
-    if (counter - step >= minValue) {
-      setCounter((prevCounter) => prevCounter - step);
+
+const ToDoFunction = () => {
+  const [tasks, setTasks] = useState([]);
+  const [newTask, setNewTask] = useState("");
+
+  const addTask = () => {
+    if (newTask.trim()) {
+      setTasks([...tasks, { id: Date.now(), text: newTask, completed: false }]);
+      setNewTask("");
     }
   };
-  const handleReset = () => {
-    setCounter(0);
+
+  const deleteTask = (taskId) => {
+    setTasks(tasks.filter((task) => task.id !== taskId));
   };
-  const handleStepChange = (event) => {
-    setStep(Number(event.target.value));
+
+  const toggleTaskCompletion = (taskId) => {
+    setTasks(
+      tasks.map((task) =>
+        task.id === taskId ? { ...task, completed: !task.completed } : task,
+      ),
+    );
   };
+
   return (
-    <div style={{ textAlign: "center", marginTop: "50px" }}>
-      <h1>Counter Application</h1>
-      <div style={{ fontSize: "48px", margin: "20px" }}>
-        <span>{counter}</span>
+    <div className="todo-container">
+      <h2 className="todo-header">To-Do List</h2>
+
+      <div className="todo-input-wrapper">
+        <input
+          type="text"
+          value={newTask}
+          onChange={(e) => setNewTask(e.target.value)}
+          placeholder="Add a new task..."
+          className="todo-input"
+        />
+        <button className="add-task-button" onClick={addTask}>
+          Add Task
+        </button>
       </div>
-      <div>
-        <button onClick={handleIncrement}>Increase by {step}</button>
-        <button onClick={handleDecrement}>Decrease by {step}</button>
-        <button onClick={handleReset}>Reset</button>
-      </div>
-      <div style={{ marginTop: "20px" }}>
-        <label>
-          Set Increment/Decrement Step:
-          <input
-            type="number"
-            value={step}
-            onChange={handleStepChange}
-            min="1"
-            style={{ marginLeft: "10px" }}
-          />
-        </label>
-      </div>
+
+      <ul className="todo-list">
+        {tasks.map((task) => (
+          <li
+            key={task.id}
+            className={`todo-item ${task.completed ? "completed" : ""}`}>
+            <span
+              className="task-text"
+              onClick={() => toggleTaskCompletion(task.id)}>
+              {task.text}
+            </span>
+            <button
+              className="delete-button"
+              onClick={() => deleteTask(task.id)}>
+              ❌
+            </button>
+          </li>
+        ))}
+      </ul>
     </div>
   );
-}
-export default App;
+};
+
+export default ToDoFunction;
