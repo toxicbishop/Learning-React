@@ -1,41 +1,99 @@
-.app {
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+h1 {
+  background: #000;
+  color: #fff;
+  padding: 10px;
   text-align: center;
-  padding: 20px;
 }
 
 .figure-list-container {
-  max-width: 1000px;
-  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 20px;
 }
-
 .button-box {
+  display: block;
+  text-align: center;
+  padding: 10px;
   margin-bottom: 20px;
 }
 
 .action-button {
-  margin: 5px;
   padding: 10px 20px;
+  margin: 10px;
+  background-color: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
+  font-size: 16px;
+  transition: background-color 0.3s ease;
+}
+
+.action-button:hover {
+  background-color: #45a049;
 }
 
 .figure-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 15px;
+}
+
+.figure-list img {
+  max-width: 200px;
+  max-height: 200px;
+  border: 2px solid #ccc;
+  border-radius: 8px;
+}
+
+figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+figcaption {
+  margin-top: 8px;
+  font-size: 14px;
+  color: #555;
 }
 
 .figure {
-  border: 1px solid #ccc;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border: 2px solid #ddd;
+  border-radius: 8px;
   padding: 10px;
-  width: 200px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.figure:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
 }
 
 .figure-image {
-  width: 100%;
-  height: auto;
+  max-width: 200px;
+  max-height: 200px;
+  border-radius: 8px;
+  object-fit: cover;
 }
 
 .figure-caption {
   margin-top: 10px;
+  font-size: 14px;
+  color: #555;
+  text-align: center;
 }

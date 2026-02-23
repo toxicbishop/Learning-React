@@ -14,41 +14,24 @@ function TaskList({ tasks, setTasks }) {
   };
 
   return (
-    <div className="task-list-container">
+    <div>
       {tasks.length > 0 ? (
-        <ul className="task-list">
+        <ul>
           {tasks.map((task) => (
-            <li
-              key={task.id}
-              className={`task-item ${task.completed ? "completed" : ""}`}>
-              <div className="task-content">
-                <h3>{task.name}</h3>
-                <p className="due-date">📅 Due: {task.dueDate}</p>
-                {task.description && (
-                  <p className="description">{task.description}</p>
-                )}
-                <p className="status">
-                  Status:{" "}
-                  <span>{task.completed ? "Completed" : "Pending"}</span>
-                </p>
-              </div>
-              <div className="task-actions">
-                <button
-                  className={`btn-toggle ${task.completed ? "undo" : "complete"}`}
-                  onClick={() => toggleTaskCompletion(task.id)}>
-                  {task.completed ? "Undo" : "Complete"}
-                </button>
-                <button
-                  className="btn-delete"
-                  onClick={() => deleteTask(task.id)}>
-                  Delete
-                </button>
-              </div>
+            <li key={task.id}>
+              <h3>{task.name}</h3>
+              <p>Due Date: {task.dueDate}</p>
+              {task.description && <p>Description: {task.description}</p>}
+              <p>Status: {task.completed ? "Completed" : "Not Completed"}</p>
+              <button onClick={() => toggleTaskCompletion(task.id)}>
+                Toggle Completion
+              </button>
+              <button onClick={() => deleteTask(task.id)}>Delete Task</button>
             </li>
           ))}
         </ul>
       ) : (
-        <p className="no-tasks">No tasks found. Add a task to get started!</p>
+        <p>No tasks found.</p>
       )}
     </div>
   );

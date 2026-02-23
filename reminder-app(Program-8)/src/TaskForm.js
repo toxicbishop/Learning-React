@@ -25,38 +25,31 @@ function TaskForm({ addTask }) {
   };
 
   return (
-    <div className="form-container">
-      <form onSubmit={handleSubmit} className="task-form">
-        <h2>Add New Task</h2>
-        <div className="form-group">
-          <input
-            type="text"
-            placeholder="Task Name"
-            value={taskName}
-            onChange={(e) => setTaskName(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <input
-            type="date"
-            value={dueDate}
-            onChange={(e) => setDueDate(e.target.value)}
-            required
-          />
-        </div>
-        <div className="form-group">
-          <textarea
-            placeholder="Description (optional)"
-            value={description}
-            onChange={(e) => setDescription(e.target.value)}
-          />
-        </div>
-        <button type="submit" className="btn-add">
-          Add Task
-        </button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <input
+          type="text"
+          placeholder="Task Name"
+          value={taskName}
+          onChange={(e) => setTaskName(e.target.value)}
+        />
+      </div>
+      <div>
+        <input
+          type="date"
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+        />
+      </div>
+      <div>
+        <textarea
+          placeholder="Description (optional)"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)}
+        />
+      </div>
+      <button type="submit">Add Task</button>
+    </form>
   );
 }
 

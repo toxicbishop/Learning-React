@@ -3,43 +3,32 @@ import BasicFigure from "./BasicFigure";
 
 const FigureList = () => {
   const [figures, setFigures] = useState([
-    {
-      imageUrl: "https://picsum.photos/400?random=1",
-      caption: "Serene Landscape",
-    },
-    {
-      imageUrl: "https://picsum.photos/400?random=2",
-      caption: "Urban Architecture",
-    },
-    {
-      imageUrl: "https://picsum.photos/400?random=3",
-      caption: "Mystic Forest",
-    },
-    { imageUrl: "https://picsum.photos/400?random=4", caption: "Ocean Breeze" },
+    { imageUrl: "https://picsum.photos/400", caption: "Random Image 1" },
+    { imageUrl: "https://picsum.photos/400", caption: "Random Image 2" },
+    { imageUrl: "https://picsum.photos/400", caption: "Random Image 3" },
+    { imageUrl: "https://picsum.photos/400", caption: "Random Image 4" },
   ]);
 
   const addFigure = () => {
     const newFigure = {
       imageUrl: `https://picsum.photos/400?random=${figures.length + 1}`,
-      caption: `Random Masterpiece ${figures.length + 1}`,
+      caption: `Random Image ${figures.length + 1}`,
     };
     setFigures([...figures, newFigure]);
   };
 
   const removeFigure = () => {
-    if (figures.length > 0) {
-      const updatedFigures = figures.slice(0, -1);
-      setFigures(updatedFigures);
-    }
+    const updatedFigures = figures.slice(0, -1);
+    setFigures(updatedFigures);
   };
 
   return (
     <div className="figure-list-container">
       <div className="button-box">
-        <button onClick={addFigure} className="action-button add">
+        <button onClick={addFigure} className="action-button">
           Add Image
         </button>
-        <button onClick={removeFigure} className="action-button remove">
+        <button onClick={removeFigure} className="action-button">
           Remove Image
         </button>
       </div>

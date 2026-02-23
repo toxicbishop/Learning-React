@@ -18,10 +18,9 @@ const Form = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    // Sanitization: trim whitespace
     setFormData((prevState) => ({
       ...prevState,
-      [name]: value.trimStart(),
+      [name]: value.trim(),
     }));
   };
 
@@ -29,12 +28,12 @@ const Form = () => {
     let isValid = true;
     const newErrors = { name: "", email: "", password: "" };
 
-    if (!formData.name.trim()) {
+    if (!formData.name) {
       newErrors.name = "Name is required.";
       isValid = false;
     }
 
-    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,10}$/;
+    const emailPattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,4}$/;
     if (!formData.email || !emailPattern.test(formData.email)) {
       newErrors.email = "Please enter a valid email address.";
       isValid = false;
@@ -60,8 +59,7 @@ const Form = () => {
     e.preventDefault();
 
     if (isFormValid) {
-      console.log("Form Submitted Successfully:", formData);
-      alert("Form submitted successfully! Check console for data.");
+      console.log("Form Data:", formData);
       setFormData({
         name: "",
         email: "",
@@ -71,49 +69,38 @@ const Form = () => {
   };
 
   return (
-    <div className="form-card">
-      <div className="form-header">
-        <h2 className="form-title">Create Account</h2>
-        <p className="form-subtitle">Join our premium community today</p>
-      </div>
-      <form onSubmit={handleSubmit} className="form-content">
+    <div className="form-container">
+      <h2 className="form-title">Registration Form</h2>
+      <form onSubmit={handleSubmit} className="form">
         <div className="form-group">
           <label htmlFor="name" className="form-label">
-            Full Name
+            Name
           </label>
-          <div className="input-wrapper">
-            <input
-              type="text"
-              id="name"
-              name="name"
-              value={formData.name}
-              onChange={handleChange}
-              className={`form-input ${errors.name ? "input-error" : ""}`}
-              placeholder="John Doe"
-              autoComplete="name"
-            />
-            {errors.name && <span className="error-icon">!</span>}
-          </div>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className={`form-input ${errors.name ? "error" : ""}`}
+            placeholder="Enter your name"
+          />
           {errors.name && <div className="error-message">{errors.name}</div>}
         </div>
 
         <div className="form-group">
           <label htmlFor="email" className="form-label">
-            Email Address
+            Email
           </label>
-          <div className="input-wrapper">
-            <input
-              type="email"
-              id="email"
-              name="email"
-              value={formData.email}
-              onChange={handleChange}
-              className={`form-input ${errors.email ? "input-error" : ""}`}
-              placeholder="hello@example.com"
-              autoComplete="email"
-            />
-            {errors.email && <span className="error-icon">!</span>}
-          </div>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className={`form-input ${errors.email ? "error" : ""}`}
+            placeholder="Enter your email"
+          />
           {errors.email && <div className="error-message">{errors.email}</div>}
         </div>
 
@@ -121,33 +108,34 @@ const Form = () => {
           <label htmlFor="password" className="form-label">
             Password
           </label>
-          <div className="input-wrapper">
-            <input
-              type={showPassword ? "text" : "password"}
-              id="password"
-              name="password"
-              value={formData.password}
-              onChange={handleChange}
-              className={`form-input ${errors.password ? "input-error" : ""}`}
-              placeholder="••••••••"
-              autoComplete="new-password"
-            />
-            <button
-              type="button"
-              className="toggle-password"
-              onClick={() => setShowPassword(!showPassword)}
-              aria-label={showPassword ? "Hide password" : "Show password"}>
-              {showPassword ? "Hide" : "Show"}
-            </button>
-          </div>
+          <input
+            type={showPassword ? "text" : "password"}
+            id="password"
+            name="password"
+            value={formData.password}
+            onChange={handleChange}
+            className={`form-input ${errors.password ? "error" : ""}`}
+            placeholder="Enter your password"
+          />
           {errors.password && (
             <div className="error-message">{errors.password}</div>
           )}
         </div>
 
-        <div className="form-actions">
+        <div className="form-group password-toggle">
+          <label>
+            <input
+              type="checkbox"
+              checked={showPassword}
+              onChange={() => setShowPassword(!showPassword)}
+            />
+            Show Password
+          </label>
+        </div>
+
+        <div className="form-group">
           <button type="submit" className="form-submit" disabled={!isFormValid}>
-            Sign Up
+            Submit
           </button>
         </div>
       </form>

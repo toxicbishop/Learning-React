@@ -1,23 +1,11 @@
 import React from "react";
 
-function Filter({ setFilter, currentFilter }) {
+function Filter({ setFilter }) {
   return (
-    <div className="filter-container">
-      <button
-        className={`filter-btn ${currentFilter === "all" ? "active" : ""}`}
-        onClick={() => setFilter("all")}>
-        All Tasks
-      </button>
-      <button
-        className={`filter-btn ${currentFilter === "completed" ? "active" : ""}`}
-        onClick={() => setFilter("completed")}>
-        Completed
-      </button>
-      <button
-        className={`filter-btn ${currentFilter === "not-completed" ? "active" : ""}`}
-        onClick={() => setFilter("not-completed")}>
-        Pending
-      </button>
+    <div>
+      <button onClick={() => setFilter("all")}>All Tasks</button>
+      <button onClick={() => setFilter("completed")}>Completed Tasks</button>
+      <button onClick={() => setFilter("not-completed")}>Pending Tasks</button>
     </div>
   );
 }

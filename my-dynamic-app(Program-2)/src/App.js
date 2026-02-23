@@ -1,20 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
+import Header from "./Header";
+import Footer from "./Footer";
 import "./App.css";
 function App() {
-  const [text, setText] = useState("");
-  const handleChange = (event) => {
-    setText(event.target.value);
-  };
+  const title = "Welcome to My React App";
+  const tagline = "Building great apps with React";
+  const copyright = "© 2025 MyApp, All Rights Reserved";
   return (
     <div className="App">
-      <h1>Dynamic Text Display</h1>
-      <input
-        type="text"
-        value={text}
-        onChange={handleChange}
-        placeholder="Type something..."
-      />
-      <p>You typed: {text}</p>
+      <Header title={title} />
+      <Footer tagline={tagline} copyright={copyright} />
     </div>
   );
 }
