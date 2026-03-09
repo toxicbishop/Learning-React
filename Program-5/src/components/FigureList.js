@@ -22,12 +22,12 @@ const FigureList = () => {
   }; 
   
   return ( 
-    <div className="figure-list-container"> 
+    <div className='figure-list-container'> 
       <div className='button-box'> 
-        <button onClick={addFigure} className="action-button">Add Image</button> 
-        <button onClick={removeFigure} className="action-button">Remove Image</button> 
+        <button onClick={addFigure} className='action-button'>Add Image</button> 
+        <button onClick={removeFigure} className='action-button'>Remove Image</button> 
       </div> 
-      <div className="figure-list"> 
+      <div className='figure-list'> 
         {figures.map((figure, index) => ( 
           <BasicFigure key={index} imageUrl={figure.imageUrl} caption={figure.caption} /> 
         ))} 
