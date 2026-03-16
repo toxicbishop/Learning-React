@@ -1,66 +1,60 @@
-.App {
-  max-width: 800px;
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+div {
   margin: 0 auto;
+  max-width: 960px;
   padding: 20px;
-  font-family: sans-serif;
 }
 
-.app-header {
-  text-align: center;
-  margin-bottom: 30px;
+h2 {
+  color: #333;
+  padding-bottom: 20px;
 }
 
-.layout-grid {
-  display: flex;
-  gap: 20px;
-}
-
-.task-form {
-  flex: 1;
-  border: 1px solid #ccc;
-  padding: 15px;
-}
-
-.task-list-container {
-  flex: 2;
-}
-
-.task-item {
-  border: 1px solid #ddd;
+nav {
+  background-color: #333;
   padding: 10px;
-  margin-bottom: 10px;
+  border-radius: 5px;
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
+  gap: 15px;
+  justify-content: center;
+  margin: 0;
+  padding: 0;
 }
 
-.task-item.completed {
-  background-color: #f9f9f9;
-  color: #888;
-  text-decoration: line-through;
+li {
+  display: inline;
 }
 
-.filter-container {
-  margin-bottom: 15px;
+a {
+  text-decoration: none;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 4px;
 }
 
-.filter-btn {
-  margin-right: 5px;
-  cursor: pointer;
+a:hover {
+  background-color: #444;
 }
 
-.filter-btn.active {
+a.active {
+  background-color: #1e90ff;
+  color: white;
   font-weight: bold;
 }
 
-input,
-textarea {
-  width: 100%;
-  margin-bottom: 10px;
-  padding: 5px;
-  box-sizing: border-box;
-}
-
-button {
-  cursor: pointer;
+p {
+  color: #555;
+  font-size: 1.1rem;
+  line-height: 1.6;
 }

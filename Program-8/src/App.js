@@ -1,49 +1,26 @@
-import React, { useState, useEffect } from "react";
-import TaskForm from "./TaskForm";
-import TaskList from "./TaskList";
-import Filter from "./Filter";
-import "./App.css";
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './components/Home';
+import About from './components/About';
+import Contact from './components/Contact';
+import './App.css'
 
-function App() {
-  const [tasks, setTasks] = useState(() => {
-    const savedTasks = localStorage.getItem("reminder-tasks");
-    return savedTasks ? JSON.parse(savedTasks) : [];
-  });
-  const [filter, setFilter] = useState("all");
-
-  useEffect(() => {
-    localStorage.setItem("reminder-tasks", JSON.stringify(tasks));
-  }, [tasks]);
-
-  const addTask = (newTask) => {
-    setTasks([...tasks, newTask]);
-  };
-
-  const filteredTasks = tasks.filter((task) => {
-    if (filter === "completed") return task.completed;
-    if (filter === "not-completed") return !task.completed;
-    return true;
-  });
-
+const App = () => {
   return (
-    <div className="App">
-      <header className="app-header">
-        <h1>Task Reminder</h1>
-        <p>Stay organized and productive</p>
-      </header>
-      <main className="app-main">
-        <div className="layout-grid">
-          <section className="form-section">
-            <TaskForm addTask={addTask} />
-          </section>
-          <section className="list-section">
-            <Filter setFilter={setFilter} currentFilter={filter} />
-            <TaskList tasks={filteredTasks} setTasks={setTasks} />
-          </section>
+    <Router>
+      <div>
+        <Navbar />
+        <div style={{ padding: '20px' }}>
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/contact" element={<Contact />} />
+          </Routes>
         </div>
-      </main>
-    </div>
+      </div>
+    </Router>
   );
-}
+};
 
 export default App;
