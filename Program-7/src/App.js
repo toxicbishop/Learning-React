@@ -1,18 +1,18 @@
-import React from 'react';
-import ProfileCard from './ProfileCard';
-import './App.css'
-
+import React from "react";
+import ProfileCard from "./ProfileCard";
+import "./App.css";
 const App = () => {
   return (
     <div className="App">
       <ProfileCard
-        name="vtucircle"
-        bio="vtucircle is the website which provides all the required VTU notes, syllabus, model papers, previous 
-             year papers of 2021 | 2022 scheme for BE students."
-        profilePicture="https://vtucircle.com/wp-content/uploads/2024/11/cropped-vtucircle_icon-1.png"
+        name="Kammavari Sangham"
+        bio="K.S. School of Engineering and Management (KSSEM). The Sangham's long-standing 
+commitment to education and community service is impressive, with a strong focus on providing 
+quality education, supporting students through scholarships and free accommodation, and 
+promoting social welfare through various other initiatives."
+        profilePicture="https://kssem.edu.in/img/about/history.jpg"
       />
     </div>
   );
 };
-
 export default App;
