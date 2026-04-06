@@ -19,7 +19,10 @@ Repository containing React programs developed during the 6th semester.
 - **[Program-7](./Program-7)**: A Profile Card component that demonstrates the use of props to display user information such as name, bio, and profile picture.
   ![Program-7 Output](./Outputs/Program-7.png)
 - **[Program-8](./Program-8)**: A Task Reminder application (To-Do List) with advanced features like task filtering, persistence using `localStorage`, and a responsive layout.
-  ![Program-8 Output](./Outputs/Program-8.png)
+  <p align="center">
+    <img src="./Outputs/Program-8.png" alt="Program-8 Output" width="400" />
+    <img src="./Outputs/Program-8(1).png" alt="Program-8 Output (1)" width="400" />
+  </p>
 - **[Program-9](./Program-9)**: A React application demonstrating SPA (Single Page Application) navigation using `react-router-dom` with Home, About, and Contact routes.
   ![Program-9 Output](./Outputs/Program-9.png)
 - **[Program-10](./Program-10)**: A Data Fetching application that retrieves and displays user data from an external API using class components and lifecycle methods, including search and filter functionality.
