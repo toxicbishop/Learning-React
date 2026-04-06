@@ -24,9 +24,13 @@ Repository containing React programs developed during the 6th semester.
     <img src="./Outputs/Program-8(1).png" alt="Program-8 Output (1)" height="500" />
   </p>
 - **[Program-9](./Program-9)**: A React application demonstrating SPA (Single Page Application) navigation using `react-router-dom` with Home, About, and Contact routes.
-  ![Program-9 Output](./Outputs/Program-9.png)
+  <p align="center">
+    <img src="./Outputs/Program-9.png" alt="Program-9 Output" height="500" />
+  </p>
 - **[Program-10](./Program-10)**: A Data Fetching application that retrieves and displays user data from an external API using class components and lifecycle methods, including search and filter functionality.
-  ![Program-10 Output](./Outputs/Program10.png)
+  <p align="center">
+    <img src="./Outputs/Program10.png" alt="Program-10 Output" height="500" />
+  </p>
 
 ## Recommended VS Code Extensions
 
