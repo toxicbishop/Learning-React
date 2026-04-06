@@ -1,11 +1,10 @@
-import React from 'react';
+import React from "react";
 
 const Home = () => {
   return (
     <div>
-      <h1>Home Page</h1>
-      <p>Welcome to the Home Page of our React Routing Application!</p>
-      <p>This application demonstrates navigation using react-router-dom.</p>
+      <h2>Home Page</h2>
+      <p>Welcome to the Home Page!</p>
     </div>
   );
 };

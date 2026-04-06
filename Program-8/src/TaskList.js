@@ -24,14 +24,14 @@ function TaskList({ tasks, setTasks }) {
               {task.description && <p>Description: {task.description}</p>}
               <p>Status: {task.completed ? "Completed" : "Not Completed"}</p>
               <button onClick={() => toggleTaskCompletion(task.id)}>
-                Toggle Completion
+                {task.completed ? "Mark as Not Completed" : "Mark as Completed"}
               </button>
-              <button onClick={() => deleteTask(task.id)}>Delete Task</button>
+              <button onClick={() => deleteTask(task.id)}>Delete</button>
             </li>
           ))}
         </ul>
       ) : (
-        <p>No tasks found.</p>
+        <p>No tasks available!</p>
       )}
     </div>
   );

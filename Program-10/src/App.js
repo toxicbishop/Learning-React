@@ -1,6 +1,6 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-const API_URL = 'https://jsonplaceholder.typicode.com/users';
+const API_URL = "https://jsonplaceholder.typicode.com/users";
 
 class DataFetcher extends Component {
   constructor(props) {
@@ -8,7 +8,7 @@ class DataFetcher extends Component {
     this.state = {
       data: [],
       filteredData: [],
-      searchQuery: '',
+      searchQuery: "",
       error: null,
       loading: false,
     };
@@ -23,7 +23,7 @@ class DataFetcher extends Component {
     try {
       const response = await fetch(API_URL);
       if (!response.ok) {
-        throw new Error('Failed to fetch data');
+        throw new Error("Failed to fetch data");
       }
       const data = await response.json();
       this.setState({ data, filteredData: data, loading: false });
@@ -44,11 +44,11 @@ class DataFetcher extends Component {
 
   filterData = () => {
     const { data, searchQuery } = this.state;
-    if (searchQuery.trim() === '') {
+    if (searchQuery.trim() === "") {
       this.setState({ filteredData: data });
     } else {
       const filteredData = data.filter((item) =>
-        item.name.toLowerCase().includes(searchQuery.toLowerCase())
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()),
       );
       this.setState({ filteredData });
     }
